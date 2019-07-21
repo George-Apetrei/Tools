@@ -14,10 +14,9 @@ private:
 
 //----------------------------------------------------------------Measure time
 
-
 class Time_Measure {
 private:
-	std::vector<std::chrono::high_resolution_clock::time_point> time_table;
+	std::vector<std::chrono::high_resolution_clock::time_point> time_table;		//Holds all the time points recorded
 public:
 	void now();		//Logs the time when it is called
 	void print(int step);	//Prints on the screen the difference between measurements for every <step> steps, Ex: step=2, 1-0,3-2,4-3,etc; Step=3: 2-0,5-3,8-5, etc;
@@ -27,13 +26,13 @@ public:
 
 //---------------------------------------------------------------Thread-safe queue
 
-template<typename T>
+template<typename T>			//Takes any data type
 class Thread_Safe_Queue {
 private:
-	std::deque<T> queue;
-	std::mutex queue_mutex;
-	std::condition_variable condition;
+	std::deque<T> queue;				//The actual queue
+	std::mutex queue_mutex;				//Mutex to block
+	std::condition_variable condition;	//Conditional to pause until more items have been added to the queue
 public:
-	void push_back(T&& data);
-	T pop_back();
+	void push_back(T&& item);			//Simple push item at the end of the queue
+	T pop_back();						//Simple get item from end of queue and remove from queue
 };
