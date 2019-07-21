@@ -1,8 +1,11 @@
 # Tools library
 
 Currently contains:
+
  -Thread-safe queue(Thread_Safe_Queue<T>)
+ 
  -Time measurement(Time_Measure)
+ 
  -Random number generation(Rand_Num_Gen)
 
 Functionality:
