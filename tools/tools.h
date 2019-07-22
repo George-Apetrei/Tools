@@ -50,4 +50,7 @@ public:
 	queue.pop_back();											//Remove item from queue
 	return item;
 	}
+	int check() {	//Returns the number of items in queue
+		return queue.size();
+	}
 };
