@@ -69,27 +69,3 @@ int Time_Measure::get_size()
 {
 	return time_table.size();
 }
-
-//---------------------------------------------------------------Thread-safe queue
-
-
-template<typename T>
-void Thread_Safe_Queue<T>::push_back(T&& item)
-{
-	std::unique_lock<std::mutex> queue_lock(queue_mutex);		//Lock the mutex for this function
-	queue.push_back(item);						//Add item to the back of the queue
-	queue_lock.unlock();						//Release mutex
-	condition.notify_one();						//Notify a thread that an item has been added to the queue
-}
-
-template<typename T>
-T Thread_Safe_Queue<T>::pop_back()
-{
-	std::unique_lock<std::mutex> queue_lock(queue_mutex);		//Lock the mutex for function
-	while (queue.empty()) {										//If queue is empty
-		condition.wait(queue_lock);								//Release mutex and wait until notified
-	}
-	auto item = queue.back();									//Get item
-	queue.pop_back();											//Remove item from queue
-	return item;
-}

@@ -33,6 +33,21 @@ private:
 	std::mutex queue_mutex;				//Mutex to block
 	std::condition_variable condition;	//Conditional to pause until more items have been added to the queue
 public:
-	void push_back(T&& item);			//Simple push item at the end of the queue
-	T pop_back();						//Simple get item from end of queue and remove from queue
+	void push_back(T&& item)			//Simple push item at the end of the queue
+	{
+	std::unique_lock<std::mutex> queue_lock(queue_mutex);		//Lock the mutex for this function
+	queue.push_back(item);						//Add item to the back of the queue
+	queue_lock.unlock();						//Release mutex
+	condition.notify_one();						//Notify a thread that an item has been added to the queue
+	}
+	T pop_back()						//Simple get item from end of queue and remove from queue
+	{
+	std::unique_lock<std::mutex> queue_lock(queue_mutex);		//Lock the mutex for function
+	while (queue.empty()) {										//If queue is empty
+		condition.wait(queue_lock);								//Release mutex and wait until notified
+	}
+	auto item = queue.back();									//Get item
+	queue.pop_back();											//Remove item from queue
+	return item;
+	}
 };
