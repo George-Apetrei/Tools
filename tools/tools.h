@@ -51,6 +51,7 @@ public:
 	return item;
 	}
 	int check() {	//Returns the number of items in queue
+	std::unique_lock<std::mutex> queue_lock(queue_mutex);
 		return queue.size();
 	}
 };
