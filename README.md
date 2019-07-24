@@ -1,3 +1,5 @@
+#More functionality to be added over time
+
 # Tools library
 
 Currently contains:
@@ -14,7 +16,7 @@ Rand_Num_Gen
 ------------------------
 object.randomGenerator(lower_limit, upper_limit), returns a number >= lower_limit and <=upper_limit
 
-Time_Measure
+Time_Measure - Momentarily a bit clunky since you can't change the unit of measurement in a dynamic way
 -----------------------
 object.now(), saves a time point inside an array within the class
 
@@ -22,8 +24,10 @@ object.print(step), prints on the console the difference between measurements fo
  
 object.print(a,b), prints on the console the difference for 2 specific time point logs; bigger-smaller
  
-Thread_Safe_Queue<T>
+Thread_Safe_Queue<T> - Momentarily not that thread-safe as it still needs a way to know when it should exit in case it gets locked in the checking loop
 -----------------------
 object.push_back(), adds an item to the back queue
  
 object.pop_back(), returns and removes the item from the back of the queue
+
+object.check(), returns the size of the container
