@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <chrono>
 #include <random>
 #include <vector>
@@ -8,14 +9,17 @@
 #include <thread>
 #include <atomic>
 
+
 //-------------------------------------------------------------Random number Generation
 
 class Rand_Num_Gen {
 public:
 	Rand_Num_Gen();
-	int randomGenerator(int lower_limit, int upper_limit);
+	int random_int_generator(int lower_limit, int upper_limit);
+	double random_double_generator(double lower_limit, double upper_limit);
 private:
 	std::uniform_int_distribution<int> dist;
+	std::uniform_real_distribution<double> dist_real;
 	std::mt19937_64 the_generator;
 	std::random_device ran_dev;
 };

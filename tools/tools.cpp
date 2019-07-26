@@ -3,18 +3,24 @@
 
 //-------------------------------------------------------------Random number Generation
 
-
 //Constructor for Rand_Num_Gen to create a seed for random generation when the function object is created
 Rand_Num_Gen::Rand_Num_Gen() {
 	the_generator.seed(ran_dev());
 }
 
 //The actual random generation function
-int Rand_Num_Gen::randomGenerator(int lower_limit, int upper_limit) {						//Call this function to get an actual number lower_limit>= and <=upper_limit
+int Rand_Num_Gen::random_int_generator(int lower_limit, int upper_limit) {						//Call this function to get an actual number lower_limit>= and <=upper_limit
 	std::uniform_int_distribution<int>::param_type parameters(lower_limit, upper_limit);
 	dist.param(parameters);
 	return dist(the_generator);
 }
+
+double Rand_Num_Gen::random_double_generator(double lower_limit, double upper_limit) {
+	std::uniform_real_distribution<double>::param_type parameters(lower_limit, upper_limit);
+	dist_real.param(parameters);
+	return dist_real(parameters);
+}
+
 
 //----------------------------------------------------------------Measure time
 
