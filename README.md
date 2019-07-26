@@ -1,5 +1,7 @@
 #More functionality to be added over time
 
+Note:This library might be used in various projects I have, however it is not being retroactively updated in all previous projects, the version of it used in the project, is within the projects folder
+
 # Tools library
 
 Currently contains:
@@ -31,3 +33,5 @@ object.push_back(), adds an item to the back queue
 object.pop_back(), returns and removes the item from the back of the queue
 
 object.check(), returns the size of the container
+
+object.pop_front(),returns and removes the item from the front of the queue
