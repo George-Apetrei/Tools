@@ -76,3 +76,16 @@ public:
 			return queue.size();
 		}
 	};
+	
+//--------------------------------------------- Counting sort
+template<typename T>
+class Counting_Sort{
+	public:
+		T return_sort(T& to_sort){
+			T sorted;
+			for(int i=0;i<to_sort.size();
+		}
+		void no_return_sort(T& array){
+			
+		}
+}
