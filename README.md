@@ -35,3 +35,9 @@ object.pop_back(), returns and removes the item from the back of the queue
 object.check(), returns the size of the container
 
 object.pop_front(),returns and removes the item from the front of the queue
+
+Count Sort
+------------------
+object.return_count(), returns the sorted array
+
+object.count(), sorts the array passed as parameter
