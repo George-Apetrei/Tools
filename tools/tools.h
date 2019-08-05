@@ -8,7 +8,7 @@
 #include <mutex>
 #include <thread>
 #include <atomic>
-
+#include <cmath>
 
 //-------------------------------------------------------------Random number Generation
 
@@ -76,16 +76,20 @@ public:
 			return queue.size();
 		}
 	};
-	
+
 //--------------------------------------------- Counting sort
 template<typename T>
 class Counting_Sort{
 	public:
-		T return_sort(T& to_sort){
+		T sort_ordered(T& to_sort){
 			T sorted;
 			for(int i=0;i<to_sort.size();
 		}
-		void no_return_sort(T& array){
-			
+		void sort_unordered(T& array,int lower_bound,int upper_bound){
+			int number_of_elements=(abs(lower_bound)+abs(upper_bound));
+			std::vector<T> sorted;
+			for(int i=0;i<number_of_elements;++i){
+				
+			}
 		}
 }
