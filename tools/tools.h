@@ -87,6 +87,7 @@ class Counting_Sort{
 		}
 		void sort_unordered(T& array,int lower_bound,int upper_bound){
 			int number_of_elements=(abs(lower_bound)+abs(upper_bound));
+			int start=lower_bound;
 			std::vector<T> sorted;
 			for(int i=0;i<number_of_elements;++i){
 				
